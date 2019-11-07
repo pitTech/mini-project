@@ -31,7 +31,7 @@
           <td style="width: 18%;">
             <a href="#modal" @click="edit(index)" class="btn waves-effect waves-light yellow darken-2"><i class="material-icons">edit</i>
             </a>
-            <a href="#!" class="btn waves-effect waves-light red darken-2" @click="archive(index)"><i class="material-icons">archive</i>
+            <a href="#!" class="btn waves-effect waves-light red darken-2" @click="archive(index)"><i class="material-icons">Clear</i>
             </a>
           </td>
         </tr>
@@ -106,11 +106,11 @@
             <div class="input-field col s12">
               <select id="edit_gender" type="text"  v-model="editInput.gender">
                   <option selected disabled>Gender</option>
-                  <option value="1">Male</option>
-                <option value="2">Female</option>
+                  <option value="Male">Male</option>
+                <option value="Female">Female</option>
               </select>
             </div>
-          </div>
+          </div> 
         </form>
       </div>
     </div>
@@ -211,24 +211,7 @@ var ordonner = function(a, b) {
 
 
 <style>
-body{
-  
-  background: linear-gradient(
-        limegreen,
-        transparent
-    ),
-    linear-gradient(
-        90deg,
-        skyblue,
-        transparent
-    ),
-    linear-gradient(
-        -90deg,
-        coral,
-        transparent
-    );
-  background-blend-mode: screen;
-}
+
 div:first-child{
   margin: 20px 0; 
 }
