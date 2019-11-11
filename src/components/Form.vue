@@ -23,13 +23,13 @@
             {{person.age}} 
           </td>
           <td>
-            {{person.job}}
+            {{person.department}}
           </td>
           <td>
             {{person.gender}}
           </td>
           <td style="width: 18%;">
-            <a href="#modal" @click="edit(index)" class="btn waves-effect waves-light yellow darken-2"><i class="material-icons">edit</i>
+            <a href="#modal" @click="edit(index)" class="btn waves-effect waves-light yellow darken-2"><i class="material-icons">Edit</i>
             </a>
             <a href="#!" class="btn waves-effect waves-light red darken-2" @click="archive(index)"><i class="material-icons">Close</i>
             </a>
@@ -61,7 +61,7 @@
             {{person.age}} 
           </td>
           <td>
-            {{person.job}}
+            {{person.department}}
           </td>
           <td>
             {{person.gender}}
@@ -79,7 +79,7 @@
 
   <div id="modal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4 class="center-align">Edit</h4>
+      <h4 class="center-align">Create</h4>
       <div class="row">
         <form class="col s12">
           <div class="row">
@@ -98,8 +98,11 @@
               <label for="edit_age">Age</label>
             </div>
             <div class="input-field col s6">
-              <input placeholder="Teacher" id="edit_job" type="text" v-model="editInput.job">
-              <label for="edit_job">Job</label>
+              <select id="edit_department" type="text"  v-model="editInput.department">
+                  <option selected disabled>Department</option>
+                  <option value="Admin">Admin</option>
+                <option value="Owner">Owner</option>
+              </select>
             </div>
           </div>
           <div class="row">
@@ -126,17 +129,17 @@
         name:'app',
         data(){
             return{
-                columns: ['Index', 'Last Name', 'First Name', 'Age', 'Job', 'Gender', 'Actions '],
+                columns: ['Index', 'Last Name', 'First Name', 'Age', 'Department', 'Gender', 'Actions '],
     persons: [{
     }],
     bin: [],
     input: {
     },
-                 editInput: {
+    editInput: {
                         lname: "",
                         fname: "",
                         age: "",
-                        job: "",
+                        department: "",
                         gender: ""
                         }
                  }
@@ -149,7 +152,7 @@
         lname: this.input.lname,
         fname: this.input.fname,
         age: this.input.age,
-        job: this.input.job,
+        department: this.input.department,
         gender: this.input.gender
       });
 
@@ -184,7 +187,7 @@
         lname: this.editInput.lname,
         fname: this.editInput.fname,
         age: this.editInput.age,
-        job: this.editInput.job,
+        department: this.editInput.department,
         gender: this.editInput.gender
       });
        for (var key in this.editInput) {
